@@ -4,7 +4,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 const testDir = process.argv.length > 2 ? process.argv[2] : './';
-const fileReg = new RegExp(`^test.+?\js$`);
+const fileReg = new RegExp(`\.js$`);
 const funcReg = new RegExp(`^test`);
 
 async function main() {
@@ -12,7 +12,8 @@ async function main() {
 	for await (const file of walkDir(testDir)) {
 		const fileName = path.basename(file);
 		if(fileName.match(fileReg)) {
-			const p = path.isAbsolute(file) ? file : './' + path.normalize(file);
+			// Surely there is a better way
+			const p = path.isAbsolute(file) ? file : path.join(process.cwd(), path.normalize(file));
 			const mod = await import(p);
 			testModule(p, mod);
 		}
