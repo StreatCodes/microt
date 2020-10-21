@@ -1,0 +1,23 @@
+{
+  "name": "microt",
+  "version": "0.1.0",
+  "description": "Micro test runner",
+  "bin": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/streatcodes/microt"
+  },
+  "keywords": [
+    "testing",
+    "test",
+    "tiny",
+    "micro",
+    "nano"
+  ],
+  "author": "Matthew Streatfield",
+  "license": "ISC"
+}
